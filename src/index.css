@@ -1,0 +1,35 @@
+.masonry-grid {
+background:#ccc;
+  column-count: 3;
+  column-gap: 1.5em;
+}
+
+.masonry-grid-item {
+  display: inline-block;
+  margin: 0 0 2em;
+  width: 100%;
+}
+
+.masonry-grid-item img:hover {
+  filter: brightness(0.65);
+  cursor: pointer;
+}
+
+/* collapse to 2 cols */
+@media (max-width: 992px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+/* collapse to 1 col */
+@media (max-width: 768px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+.thumbnail {
+  width: 100px;
+  height:auto;
+}

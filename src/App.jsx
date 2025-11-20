@@ -1,13 +1,12 @@
-import 'dotenv/config'
+import { useEffect, useState } from 'react'
 
-// TO-DO: Fix "process is not defined" error in the browser console
 function App() {
 
     // Define a state variable to hold photos
     const [photos, setPhotos] = useState([])
 
     // Get API Url from environment variables
-    const apiUrl = process.env.PHOTOS_API_URL
+    const apiUrl = import.meta.env.VITE_PHOTOS_API_URL
 
     // Fetch photos from API when component mounts
     useEffect(() => { 
@@ -21,13 +20,23 @@ function App() {
         } 
 
         getPhotos()
-
-        console.log(photos)
     }, [])
 
     return(
         <>
-            <h1>My Photo Album</h1>
+            <div className="masonry-grid">
+        
+            {
+                photos.length > 0 && (
+                    photos.map(photo => (
+                        <div key={photo.PhotoId} className="masonry-grid-item">
+                            <img src={photo.Filename} alt={photo.PhotoTitle} className="img-fluid" />
+                        </div>
+                    ))                    
+                )
+            }
+
+            </div>
         </>
     )
 }
