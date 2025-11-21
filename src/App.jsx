@@ -25,17 +25,18 @@ function App() {
     return(
         <>
             <div className="masonry-grid">
-        
             {
                 photos.length > 0 && (
                     photos.map(photo => (
                         <div key={photo.PhotoId} className="masonry-grid-item">
-                            <img src={photo.Filename} alt={photo.PhotoTitle} className="img-fluid" />
+                            <a href="/">
+                                <img src={photo.Filename} alt={photo.PhotoTitle} />
+                                <div className="label">{photo.PhotoTitle}</div>
+                            </a>
                         </div>
                     ))                    
                 )
             }
-
             </div>
         </>
     )

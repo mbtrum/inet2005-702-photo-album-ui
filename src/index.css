@@ -1,35 +1,53 @@
 .masonry-grid {
-background:#ccc;
   column-count: 3;
   column-gap: 1.5em;
 }
 
 .masonry-grid-item {
-  display: inline-block;
-  margin: 0 0 2em;
+  margin-bottom: 1rem;
+  padding: 0;
+  display: block;
+  break-inside: avoid; /* keep the whole card in one column */
+  position: relative;
+}
+
+.masonry-grid-item img{
   width: 100%;
+  display: block;
+  border-radius: 2px;
 }
 
 .masonry-grid-item img:hover {
   filter: brightness(0.65);
-  cursor: pointer;
 }
 
-/* collapse to 2 cols */
+.masonry-grid-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.masonry-grid-item .label {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: white;
+  font-size: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.masonry-grid-item a:hover .label {
+  display: block;
+}
+
 @media (max-width: 992px) {
   .masonry-grid {
     column-count: 2;
   }
 }
 
-/* collapse to 1 col */
 @media (max-width: 768px) {
   .masonry-grid {
     column-count: 1;
   }
-}
-
-.thumbnail {
-  width: 100px;
-  height:auto;
 }
