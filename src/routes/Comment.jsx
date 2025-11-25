@@ -6,7 +6,7 @@ function Comment() {
 
     return (
         <>
-            <p><Link to={`/details/${id}`}>Back to Photo</Link></p>
+            <p><Link to={`/details/${id}`}>← Back to Photo</Link></p>
 
             <div>Comment Page for ID:{id}</div>
         </>
