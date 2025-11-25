@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import PhotoCard from '../ui/PhotoCard.jsx'
 
-function App() {
+function Home() {
 
     // Define a state variable to hold photos
     const [photos, setPhotos] = useState([])
@@ -22,17 +23,14 @@ function App() {
         getPhotos()
     }, [])
 
-    return(
-        <>
-            <div className="masonry-grid">
+    return (
+ <>
+            <div className="photo-grid">
             {
                 photos.length > 0 && (
                     photos.map(photo => (
-                        <div key={photo.PhotoId} className="masonry-grid-item">
-                            <a href="/">
-                                <img src={photo.Filename} alt={photo.PhotoTitle} />
-                                <div className="label">{photo.PhotoTitle}</div>
-                            </a>
+                        <div key={photo.PhotoId}>
+                            <PhotoCard Photoid={photo.PhotoId} Filename={photo.Filename} PhotoTitle={photo.PhotoTitle} />
                         </div>
                     ))                    
                 )
@@ -42,4 +40,4 @@ function App() {
     )
 }
 
-export default App
+export default Home
